@@ -8,6 +8,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))
 
 from src.exception import CustomException
 from src.logger import logging
+from src.components.data_transformation import DataTransformation
 
 
 class DataIngestion:
@@ -46,8 +47,21 @@ class DataIngestion:
 
 
 if __name__ == "__main__":
-    obj = DataIngestion()
-    train_data, test_data = obj.initiate_data_ingestion()
+    try:
+        from src.components.data_ingestion import DataIngestion
 
-    print("Train file path:", train_data)
-    print("Test file path:", test_data)
+        ingestion = DataIngestion()
+        train_path, test_path = ingestion.initiate_data_ingestion()
+
+        transformation = DataTransformation()
+        train_arr, test_arr, _ = transformation.initiate_data_transformation(train_path, test_path)
+
+        from src.components.model_trainer import ModelTrainer
+        model_trainer = ModelTrainer()
+        best_score = model_trainer.initiate_model_trainer(train_arr, test_arr)
+        logging.info(f"Best Model R2 Score: {best_score}")
+        print("Best Model R2 Score:", best_score)
+
+    except Exception as e:
+        logging.error("Pipeline failed")
+        raise e

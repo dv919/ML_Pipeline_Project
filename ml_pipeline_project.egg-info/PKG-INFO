@@ -4,6 +4,13 @@ Version: 0.1
 Summary: ML Pipeline Project
 Author: Deeksha V
 Author-email: ed23b015@smail.iitm.ac.in
+Requires-Dist: Pandas
+Requires-Dist: Flask
+Requires-Dist: numpy
+Requires-Dist: scikit-learn
+Requires-Dist: seaborn
+Requires-Dist: xgboost
 Dynamic: author
 Dynamic: author-email
+Dynamic: requires-dist
 Dynamic: summary

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMW Sales Predictor</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #74ebd5 0%, #9face6 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            width: 400px;
+        }
+        h1 { color: #333; text-align: center; }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box; /* Ensures padding doesn't mess up width */
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #0066b1; /* Classic BMW Blue */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover { background-color: #004a80; }
+        .result {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 1.2em;
+            color: #0066b1;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>BMW Sales Predictor</h1>
+    <form action="/" method="POST">
+        <input type="number" name="year" placeholder="Year (e.g. 2024)" required>
+        <input type="number" name="month" placeholder="Month (1-12)" min="1" max="12" required>
+
+        <select name="region" required>
+            <option value="" disabled selected>Select Region</option>
+            <option value="Europe">Europe</option>
+            <option value="China">China</option>
+            <option value="USA">USA</option>
+            <option value="Asia Pacific">Asia Pacific</option>
+            <option value="Other">Other</option>
+        </select>
+
+        <select name="model" required>
+            <option value="" disabled selected>Select Model</option>
+            <option value="3 Series">3 Series</option>
+            <option value="5 Series">5 Series</option>
+            <option value="X3">X3</option>
+            <option value="X5">X5</option>
+            <option value="X7">X7</option>
+            <option value="i4">i4</option>
+            <option value="iX">iX</option>
+            <option value="MINI">MINI</option>
+        </select>
+
+        <input type="number" name="units_sold" placeholder="Units Sold" required>
+        <input type="number" step="0.01" name="avg_price_eur" placeholder="Average Price (EUR)" required>
+        <input type="number" step="0.01" name="revenue_eur" placeholder="Revenue (EUR)" required>
+        <input type="number" step="0.01" name="bev_share" placeholder="BEV Share (0-1)" min="0" max="1" step="0.001" required>
+        <input type="number" step="0.01" name="premium_share" placeholder="Premium Share (%)" required>
+        <input type="number" step="0.01" name="gdp_growth" placeholder="GDP Growth (%)" required>
+
+        <button type="submit">Predict Fuel Price Index</button>
+    </form>
+
+    {% if prediction %}
+        <div class="result">
+            Predicted Fuel Price Index: {{ "%.3f"|format(prediction) }}
+        </div>
+    {% endif %}
+</div>
+
+</body>
+</html>
