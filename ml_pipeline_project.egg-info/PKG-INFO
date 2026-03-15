@@ -1,0 +1,9 @@
+Metadata-Version: 2.4
+Name: ml_pipeline_project
+Version: 0.1
+Summary: ML Pipeline Project
+Author: Deeksha V
+Author-email: ed23b015@smail.iitm.ac.in
+Dynamic: author
+Dynamic: author-email
+Dynamic: summary
