@@ -94,7 +94,7 @@ The model uses BMW global sales data from 2018-2025 with features:
 
 ## Model Performance
 
-The pipeline evaluates multiple algorithms and selects the best performer based on R² score. Current best model achieves ~99.8% accuracy.
+The pipeline evaluates multiple algorithms and selects the best performer based on R² score. 
 
 ## Technologies Used
 
