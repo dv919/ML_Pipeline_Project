@@ -1,0 +1,7 @@
+Pandas
+Flask
+numpy
+scikit-learn
+seaborn
+xgboost
+-e .
