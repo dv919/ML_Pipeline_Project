@@ -106,8 +106,8 @@ The pipeline evaluates multiple algorithms and selects the best performer based 
 - **Joblib** - Model serialization
 
 ## Author
-DEEKSHA v
-ED23B015
+-DEEKSHA V
+-ED23B015
 
 ## License
 
