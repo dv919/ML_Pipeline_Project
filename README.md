@@ -105,13 +105,9 @@ The pipeline evaluates multiple algorithms and selects the best performer based 
 - **Pandas/Numpy** - Data manipulation
 - **Joblib** - Model serialization
 
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Run tests
-5. Submit a pull request
+## Author
+DEEKSHA v
+ED23B015
 
 ## License
 
